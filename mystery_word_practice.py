@@ -11,8 +11,7 @@ def play_game():
         open_file = file.read()
 
         # #make all the words upper case
-        words_list = open_file.upper().split()
-        
+        words_list = file.upper().split()
         # #choose a random word from the list
         mystery_word = random.choice(words_list)
         #make blank spaces
@@ -44,7 +43,7 @@ def play_game():
                 for i in range(0, len(mystery_word)):
                     if guess == mystery_word[i]:
                         print("Correct\n")
-                        blanks = blanks[:i] + guess +blanks[i+1:] #replace black spaces w/ correct letters
+                        blanks = blanks[:i] + guess +blanks[i+1:] #replace blank spaces w/ correct letters
             if guess not in mystery_word:
                 print("Incorrect\n")
             if "_" not in blanks:
