@@ -9,8 +9,8 @@ def play_game():
     if wanna_play == "Y":
         print("Good Luck ! ", name)
         print("Guess a letter to try to guess the word; you get 8 guesses!")
-    elif wanna_play == "Y":
-        print("OK, Bye", name)
+    elif wanna_play == "N":
+        print("OK, Bye ", name)
 
     with open('test-word.txt', 'r') as file:
         correct_word = file.read().replace('\n', "")
@@ -19,14 +19,20 @@ def play_game():
     wrong_list = []
 
     guess_letters(correct_word, right_list, wrong_list)
-    # guess_letters ("airplane", right_list)  
 
 
 def guess_letters(word, right_list, wrong_list):
     letters_in_correct_word = ["_" for letter in word]
     tries = 8
     while tries:
-        guess = input("guess a letter").lower()
+        guess = input("Guess your first letter now - ").lower()
+        # if max_wrong_guesses [Count(8)]:
+        #     print("You have no more guesses") 
+        # elif wrong_guesses != max_wrong_guesses:
+        #     print("Try again") 
+        # while guess_letters["> 0, < max_wrong_guesses"]:
+        #     print("Guess again")
+        #     
         if guess not in word:
             tries -= 1
             wrong_list.append(guess_letters)
@@ -41,5 +47,4 @@ def guess_letters(word, right_list, wrong_list):
 
 if __name__ == "__main__":
     play_game()
-
 
